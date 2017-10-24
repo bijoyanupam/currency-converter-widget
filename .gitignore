@@ -1,0 +1,11 @@
+# Ignore the nodemodules folder
+node_modules
+
+# Ignore OS generated files #
+.DS_Store*
+ehthumbs.db
+Icon\?
+Thumbs.db
+
+# Ignore editor specific files #
+.vscode/
