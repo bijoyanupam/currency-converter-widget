@@ -127,22 +127,46 @@ class Converter extends React.Component {
      */
     render() {
         return (
-            <div className='currency-converter'>
-                <form>
-                    <input type='text' id='input-from' onChange={this.convertCurrency.bind(this)} value={this.state.base} />
-                    <select id='currency-from' onChange={this.changeConvertion.bind(this)}>
-                        <option value="CAD">CAD</option>
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                    </select>
-                    <input type='text' id='input-to' label={this.state.conversion} onChange={this.convertCurrency.bind(this)} value={this.state.converted} />
-                    <select id='currency-to' onChange={this.selectConversion.bind(this)}>
-                        <option value="USD">USD</option>
-                        <option value="CAD">CAD</option>
-                        <option value="EUR">EUR</option>
-                    </select>
-                </form>
-            </div>
+            <form>
+                <label className="slds-item_label">Type in amount and select currency:</label>
+                <div className="slds-grid slds-wrap slds-m-bottom_small">
+                    <div className="slds-size_8-of-12 slds-form-element">
+                        <div className="slds-form-element__control">
+                            <input type="text" id="input-from" className="slds-input" onChange={this.convertCurrency.bind(this)} value={this.state.base} />
+                        </div>
+                    </div>
+                    <div className="slds-size_4-of-12 slds-p-left_small slds-form-element">
+                        <div className="slds-form-element__control">
+                            <div className="slds-select_container">
+                                <select id="currency-from" className="slds-select" onChange={this.changeConvertion.bind(this)}>
+                                    <option value="CAD">CAD</option>
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <label className="slds-item_label">Converted amount:</label>
+                <div className="slds-grid slds-wrap">
+                    <div className="slds-size_8-of-12 slds-form-element">
+                        <div className="slds-form-element__control">
+                            <input type="text" id="input-to" className="slds-input" label={this.state.conversion} onChange={this.convertCurrency.bind(this)} value={this.state.converted} />
+                        </div>
+                    </div>
+                    <div className="slds-size_4-of-12 slds-p-left_small slds-form-element">
+                        <div className="slds-form-element__control">
+                            <div className="slds-select_container">
+                                <select id='currency-to' className="slds-select" onChange={this.selectConversion.bind(this)}>
+                                    <option value="USD">USD</option>
+                                    <option value="CAD">CAD</option>
+                                    <option value="EUR">EUR</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         );
     };
 }
