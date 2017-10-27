@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Converter from './components/Converter.jsx';
+import CurrencyConverter from './components/CurrencyConverter/CurrencyConverter.jsx';
+
+require('./Main.scss');
 
 ReactDOM.render(
-    <Converter />,
-    document.getElementById('widget')
+    <CurrencyConverter />,
+    document.getElementsByClassName('currency-converter-widget')[0]
 );

@@ -1,0 +1,13 @@
+@import '../../GlobalVariables';
+/// Currency converter component.
+.currency-converter-widget {
+    .slds-input {
+        &[readonly] {
+            padding-left: $spacing-small;
+            background-color: $color-background-input;
+            border: $border-width-thin solid $color-border-input;
+            font-size: inherit;
+            font-weight: inherit;
+        }
+    }
+}

@@ -1,7 +1,13 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const ExtractTextPluginConfig = new ExtractTextPlugin(
+    'index.css', {
+        allChunks: true,
+    }
+);
+
 const config = {
-    entry: ['./src/main.jsx', './src/stylesheets/main.scss'],
+    entry: ['./src/Main.jsx'],
 
     output: {
         path: '/',
@@ -31,10 +37,7 @@ const config = {
     },
 
     plugins: [
-        new ExtractTextPlugin({
-            filename: 'index.css',
-            allChunks: true,
-        }),
+        ExtractTextPluginConfig
     ]
 }
 

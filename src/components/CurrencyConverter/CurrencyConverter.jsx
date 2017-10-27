@@ -1,10 +1,12 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
 
+require('./CurrencyConverter.scss');
+
 /**
  * Currency convertor component.
  */
-class Converter extends React.Component {
+class CurrencyConverter extends React.Component {
 
     /**
      * constructor
@@ -151,7 +153,7 @@ class Converter extends React.Component {
                 <div className="slds-grid slds-wrap">
                     <div className="slds-size_8-of-12 slds-form-element">
                         <div className="slds-form-element__control">
-                            <input type="text" id="input-to" className="slds-input" label={this.state.conversion} onChange={this.convertCurrency.bind(this)} value={this.state.converted} />
+                            <input type="text" id="input-to" className="slds-input" readOnly label={this.state.conversion} onChange={this.convertCurrency.bind(this)} value={this.state.converted} />
                         </div>
                     </div>
                     <div className="slds-size_4-of-12 slds-p-left_small slds-form-element">
@@ -171,4 +173,4 @@ class Converter extends React.Component {
     };
 }
 
-export default Converter;
+export default CurrencyConverter;
