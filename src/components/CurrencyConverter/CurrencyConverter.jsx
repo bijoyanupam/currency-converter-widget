@@ -97,11 +97,12 @@ class CurrencyConverter extends React.Component {
         if (e && e.target) {
             val = e.target.value;
         }
-        const rate = this.state.rates[this.state.conversion];
+
+        let rate = this.state.rates[this.state.conversion];
 
         this.setState({
             base: val,
-            converted: (parseInt(val) || 0) * rate
+            converted: (parseFloat(val) || 0) * rate
         });
     };
 
@@ -128,15 +129,15 @@ class CurrencyConverter extends React.Component {
      */
     render() {
         return (
-            <div class="slds-panel">
-                <div class="slds-panel__section">
-                    <h1 class="slds-text-heading_small slds-m-bottom_medium">Currency converter</h1>
+            <div className="slds-panel">
+                <div className="slds-panel__section">
+                    <h1 className="slds-text-heading_small slds-m-bottom_medium">Currency converter</h1>
                     <form>
                         <label className="slds-item_label">Type in amount and select currency:</label>
                         <div className="slds-grid slds-wrap slds-m-bottom_small">
                             <div className="slds-size_8-of-12 slds-form-element">
                                 <div className="slds-form-element__control">
-                                    <input type="text" ref="inputFrom" className="slds-input" onChange={this.convertCurrency.bind(this)} value={this.state.base} />
+                                    <input type="number" ref="inputFrom" className="slds-input" inputMode="numeric" onChange={this.convertCurrency.bind(this)} value={this.state.base} />
                                 </div>
                             </div>
                             <div className="slds-size_4-of-12 slds-p-left_small slds-form-element">
@@ -155,7 +156,7 @@ class CurrencyConverter extends React.Component {
                         <div className="slds-grid slds-wrap">
                             <div className="slds-size_8-of-12 slds-form-element">
                                 <div className="slds-form-element__control">
-                                    <input type="text" ref="inputTo" className="slds-input" readOnly label={this.state.conversion} onChange={this.convertCurrency.bind(this)} value={this.state.converted} />
+                                    <input type="text" ref="inputTo" className="slds-input" readOnly label={this.state.conversion} value={this.state.converted} />
                                 </div>
                             </div>
                             <div className="slds-size_4-of-12 slds-p-left_small slds-form-element">
