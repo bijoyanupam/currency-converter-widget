@@ -8,5 +8,15 @@ require('file-loader?name=[name].[ext]!../index.html');
 
 ReactDOM.render(
     <CurrencyConverter />,
-    document.getElementsByClassName('currency-converter-widget')[0]
+    document.getElementById('widget1')
+);
+
+ReactDOM.render(
+    <CurrencyConverter />,
+    document.getElementById('widget2')
+);
+
+ReactDOM.render(
+    <CurrencyConverter />,
+    document.getElementById('widget3')
 );
