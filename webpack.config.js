@@ -1,10 +1,12 @@
+/**
+ * Webpack configurations for development environment.
+ */
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const ExtractTextPluginConfig = new ExtractTextPlugin(
-    'index.css', {
-        allChunks: true,
-    }
-);
+const extractOptions = {
+    filename: 'index.css',
+    allChunks: true
+};
 
 const config = {
     entry: ['./src/Main.jsx'],
@@ -32,12 +34,17 @@ const config = {
             {
                 test: /\.(sass|scss)$/,
                 loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+            },
+            {
+                test: /\.(jpg|jpeg|gif|png|ico|svg|xml|json)$/,
+                exclude: /node_modules/,
+                loader: 'file-loader?name=assets/[path][name].[ext]&context=./assets'
             }
         ]
     },
 
     plugins: [
-        ExtractTextPluginConfig
+        new ExtractTextPlugin(extractOptions)
     ]
 }
 
